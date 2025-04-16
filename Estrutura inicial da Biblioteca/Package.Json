@@ -1,0 +1,18 @@
+{
+  "name": "my-library",
+  "version": "1.0.0",
+  "description": "Uma biblioteca para animações, manipulação de dados e interação com o DOM.",
+  "main": "dist/my-library.js",
+  "module": "dist/my-library.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest"
+  },
+  "keywords": ["animações", "DOM", "manipulação de dados"],
+  "author": "leandro3810",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^3.0.0",
+    "jest": "^29.0.0"
+  }
+}

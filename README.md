@@ -1,4 +1,4 @@
-  ![thinking](https://github.com/user-attachments/assets/66cad359-7e6a-488e-b05d-8064051efbc7) Óla, @leandro3810!
+                    Óla, @leandro3810!
 
 ![brasão](https://github.com/user-attachments/assets/aa28ad73-1d1b-498c-a858-fdb1e78f355c)
 

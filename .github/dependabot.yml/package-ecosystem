@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "pip" # Specify the package manager (e.g., pip for Python dependencies)
+    directory: "/" # Root directory where the dependency manifest (e.g., requirements.txt) is located
+    schedule:
+      interval: "weekly" # Keep it weekly, or adjust to "daily" if needed
+      day: "monday" # Optional: Specify the day Dependabot runs (default is Monday)
+      time: "04:00" # Optional: Specify the time of the update in UTC
+    open-pull-requests-limit: 5 # Limit the number of open PRs Dependabot creates
+    assignees:
+      - "your-github-handle" # Optional: Assign PRs to a specific user
+    reviewers:
+      - "team-name" # Optional: Request reviews from a specific team
+    ignore:
+      - dependency-name: "some-package" # Optional: Ignore specific dependencies

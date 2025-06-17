@@ -1,8 +1,13 @@
-                           Óla , @Leandro3810!
+
+                    Óla, @leandro3810!
+
+![brasão](https://github.com/user-attachments/assets/aa28ad73-1d1b-498c-a858-fdb1e78f355c)
 
 
-![brasão](https://github.com/user-attachments/assets/424fcec8-5390-4b11-b0c1-1ac31fba58dc)
+
+![01_mclaren_senna_black_livery_2_resized](https://github.com/user-attachments/assets/6d3084d6-8666-457a-ad2c-1298edb41025)
+
+modulo de estudo
 
 
 
-![01_mclaren_senna_black_livery_2_resized](https://github.com/user-attachments/assets/71d08e4a-d91c-4ee2-981b-872b6105fe8d)

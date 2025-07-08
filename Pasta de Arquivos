@@ -1,0 +1,96 @@
+markdown name=estrutura_site.md
+# Estrutura de diretórios e arquivos do site `leandro3810.github.io/leandro3810-python-lord`
+
+```
+/
+├── .devcontainer/
+│   └── ... (arquivos de desenvolvimento remoto/containers)
+├── .github/
+│   └── ... (workflows, templates, etc)
+├── adaptadores_de_arvores/
+│   └── ... (código relacionado a adaptação de árvores)
+├── ambiente/
+│   └── ... (configurações e helpers de ambiente)
+├── biblioteca_html5/
+│   └── ... (implementação da biblioteca HTML5)
+├── botao_de_traducao/
+│   └── ... (componentes de botão de tradução)
+├── cli/
+│   └── ... (interface de linha de comando)
+├── esconderijos/
+│   └── ... (implementação de esconderijos do jogo)
+├── estrutura_inicial_da_biblioteca/
+│   └── ... (setup inicial da biblioteca)
+├── jogo/
+│   └── ... (lógica e assets do jogo)
+├── html/
+│   └── ... (arquivos HTML)
+│   └── indice.html
+├── lista/
+│   └── listas/
+│       └── ... (manipulação de listas)
+├── metadados/
+│   └── ... (arquivos de metadados)
+├── rede/
+│   └── ... (componentes de rede)
+├── ferramentas_de_configuracao/
+│   └── ... (scripts e configs diversas)
+├── _vendedor/
+│   └── ... (código vendorizado de terceiros)
+├── melhoria_visual/
+│   └── ... (ajustes de UI/UX)
+├── modelo/
+│   └── ... (modelos de dados e/ou ML)
+├── mais_itertools/
+│   └── ... (utilitários itertools customizados)
+├── embalagem/
+│   └── ... (scripts de empacotamento)
+├── recursos_do_pacote/
+│   └── ... (imagens, fontes, etc)
+├── seguranca/
+│   └── cwe-020/
+│       └── ... (recursos de segurança, CWE-020)
+├── pacotes_de_site/
+│   └── ... (empacotamento para distribuição web)
+├── .gitattributes
+├── .gitignore
+├── codigo_de_conduta.md
+├── executar_comando/
+│   └── ... (scripts para execução de comandos)
+├── graficos_do_googlebiblioteca/
+│   └── ... (integração com Google Charts/Biblioteca)
+├── LICENCA
+├── LICENCA.txt
+├── LEIA-ME.md
+├── comando.install_egg_info.py
+├── comando.install_headers.py
+├── comando.install_lib.py
+├── comando.install_scripts.py
+├── comando.sdist.py
+├── comando.upload.py
+├── config.py
+├── nucleo.py
+├── cygwinccompiler.py
+├── debug.py
+├── dep_util.py
+├── dir_util.py
+├── dist.py
+├── distutils.command.install.py
+├── distutils_init_.py
+├── erros.py
+├── extensao.py
+├── externo/
+│   └── __init__.py
+├── indice.html
+├── metadados/
+│   └── ... (outros arquivos de metadados)
+```
+> Observações:
+- Os diretórios e arquivos listados representam a estrutura sugerida com base nos nomes fornecidos.
+- Os subdiretórios como `.github`, `.devcontainer`, `biblioteca_html5`, etc., podem conter múltiplos arquivos internos conforme necessidade do projeto.
+- Arquivos com nomes compostos por ponto (ex: comando.install_egg_info.py) são scripts Python na raiz do projeto.
+- Alguns nomes foram adaptados para o padrão snake_case para seguir convenção Python.
+- Arquivos importantes como `LICENCA`, `LEIA-ME.md`, `.gitignore` e outros ficam na raiz.
+- O arquivo `indice.html` está listado tanto no diretório `/html` quanto na raiz, ajuste conforme o local correto no seu projeto.
+
+Se precisar do conteúdo inicial de algum arquivo ou pasta, ou quiser um template para algum deles, me avise!

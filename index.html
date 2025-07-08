@@ -27,53 +27,38 @@
     </section>
     <section id="configuracao">
       <h2>Configuração</h2>
-      <p>body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-}
-
-header {
-  background: #333;
-  color: white;
-  padding: 1em 2em;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-section {
-  padding: 2em;
-  background: white;
-  margin: 1em;
-  border-radius: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 1em;
-  background: #222;
-  color: white;
-}
-
-#translateButton {
-  margin-top: 10px;
-  padding: 5px 15px;
-  background-color: #f4f4f4;
-  border: 1px solid #333;
-  cursor: pointer;
-}.</p>
+      <p>.</p>
     </section>
     <section id="sobre">
       <h2>Sobre</h2>
       <p>Informações sobre o site Python Lord.</p>
     </section>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js">document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
+    fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: name, email: email, message: message }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Obrigado, ' + name + '! Sua mensagem foi enviada.');
+        } else {
+            alert('Desculpe, ocorreu um erro. Tente novamente.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});</script>
 </body>
 </html>

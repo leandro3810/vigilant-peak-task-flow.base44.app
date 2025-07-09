@@ -12,10 +12,17 @@ body {
 }
 
 header {
-  background: #333;
-  color: white;
-  padding: 1em 2em;
-  text-align: center;
+  position: fixed;
+  left:50%;
+  transform:translatex(-50%);
+  display:grid;
+  align-items:center;
+  grid-template-columns:1fr 600px;
+  gap:50px
+
+  & img{
+    width:250px
+  }
 }
 
 nav a {

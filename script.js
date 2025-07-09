@@ -1,9 +1,8 @@
 let prevbutton =  document.getelementbyid('prev')
 let nextbutton  =  document.getelementbyid('next')
-let container =  document.queryselector('.container')
-let items =  container.querySelectorAll('.list .item')
-let indicator =  document.queryselector('.indicators')
-let dots = indicator.queryselectorAll('ul li')
+let img =  src.queryselector('.header')
+let nav =  menu.queryselector('.nav')
+let main = section.queryselectorAll('pesquisa')
 
 nextButton.onclick = () => {
     console.log("botão next") 

@@ -6,9 +6,13 @@
 }
 
 body {
-  background-color: #000;
-  color:#fff;
+  min-height:100vh;
+  display:flex;
+  background-color: #c7d2fe;
+  color:#1a202c;
   font-size:16px;
+  align-items:center;
+  justify-content:center;
 }
 
 header {
@@ -29,6 +33,7 @@ nav a {
   color: black;
   margin: 0 10px;
   text-decoration: none;
+  
 }
 
 section {

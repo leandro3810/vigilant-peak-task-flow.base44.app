@@ -134,3 +134,14 @@ footer {
   letter-spacing: 2px;
   font-weight: 700;
 }
+
+.google-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.google-logo svg {
+  height: 40px;
+  width: 120px;
+  display: block;
+}

@@ -102,5 +102,5 @@ function traduzirPagina(idioma) {
   document.querySelector('#contato h2').textContent = traducoes[idioma]["contato"];
   document.querySelector('#contato p').textContent = traducoes[idioma]["Email:"];
   // Rodapé
-  document.querySelector('footer p').innerHTML = traducoes[idioma]["&copy; 2025 Leandro. Todos os direitos reservados."];
+  document.querySelector('footer p').textContent = traducoes[idioma]["© 2025 Leandro. Todos os direitos reservados."];
 }

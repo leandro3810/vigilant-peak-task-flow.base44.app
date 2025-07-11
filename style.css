@@ -135,13 +135,17 @@ footer {
   font-weight: 700;
 }
 
-.google-logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* Plano de fundo artístico usando SVG inline (base64) */
+  background: 
+    url('data:image/svg+xml;utf8,<svg width="100vw" height="100vh" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23ece9e6"/><stop offset="1" stop-color="%23ffffff"/></linearGradient></defs><rect width="100vw" height="100vh" fill="url(%23a)"/><ellipse cx="80vw" cy="18vh" rx="35vw" ry="16vh" fill="%23f5c9e2" opacity="0.24"/><ellipse cx="20vw" cy="60vh" rx="28vw" ry="14vh" fill="%239ad7f5" opacity="0.22"/><ellipse cx="60vw" cy="85vh" rx="20vw" ry="8vh" fill="%23ffecb3" opacity="0.18"/><ellipse cx="40vw" cy="40vh" rx="12vw" ry="5vh" fill="%23d4ffe6" opacity="0.22"/></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* opção de fallback para cor sólida */
+  background-color: #ece9e6;
 }
-.google-logo svg {
-  height: 40px;
-  width: 120px;
-  display: block;
-}
+

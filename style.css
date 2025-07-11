@@ -134,3 +134,21 @@ footer {
   letter-spacing: 2px;
   font-weight: 700;
 }
+
+.btn-tradutor {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.btn-tradutor:hover {
+  background: #444;
+}

@@ -89,6 +89,12 @@ document.addEventListener('keydown', function(e) {
       alvo.scrollIntoView({ behavior: 'smooth' });
       alvo.setAttribute('tabindex', '-1');
       alvo.focus();
+      // Remove tabindex="-1" after the element loses focus
+      const removeTabindex = () => {
+        alvo.removeAttribute('tabindex');
+        alvo.removeEventListener('blur', removeTabindex);
+      };
+      alvo.addEventListener('blur', removeTabindex);
     }
   }
 });

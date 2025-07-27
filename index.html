@@ -1,54 +1,89 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Esse e o meu primeiro site" />
-  <meta name= "Keywords" content= "Html,Css,javaScript e pitão" />
-  <meta name = "Author" content = "Leandro R Gomes" />
-  <title>Search  Art</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />"
+  <meta name="description" content="Esse é o meu primeiro site, com dicas, atalhos e segurança aprimorada." />
+  <meta name="keywords" content="Html, Css, JavaScript, Python, Segurança, Atalhos, Tutorial, Portfolio" />
+  <meta name="author" content="Leandro R Gomes" />
+  <title>Search Art</title>
+  <!-- Segurança: HSTS, X-Content-Type-Options, X-Frame-Options -->
+  <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <!-- SEO e Segurança -->
+  <link rel="canonical" href="https://searchart.com.br/" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 </head>
 <body>
   <header>
-    
     <h1>Meu Site Search Art</h1>
-    
-    <nav>
-      <a href="#sobre">Sobre</a>
-      
-      <a href="#projetos">Projetos</a>
-      
-      <a href="#contato">Contato</a>
-      
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre" accesskey="1" title="Ir para Sobre (Alt+1)">Sobre</a></li>
+        <li><a href="#projetos" accesskey="2" title="Ir para Projetos (Alt+2)">Projetos</a></li>
+        <li><a href="#contato" accesskey="3" title="Ir para Contato (Alt+3)">Contato</a></li>
+        <li><a href="#atalhos" accesskey="4" title="Ver Atalhos do site (Alt+4)">Atalhos</a></li>
+      </ul>
     </nav>
-     <!-- Botão Tradutor -->
-    <button id="btnTradutor" class="btn-tradutor">
+    <!-- Botão Tradutor -->
+    <button id="btnTradutor" class="btn-tradutor" aria-label="Traduzir conteúdo">
       <i class="fa-solid fa-globe"></i> Traduzir
     </button>
   </header>
 
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>Uma breve descrição sobre quem você é e o que faz.</p>
-  </section>
+  <main>
+    <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <p>Uma breve descrição sobre quem você é e o que faz.</p>
+    </section>
 
-  <section id="projetos">
-    <h2>leandro3810</h2>
-    <p>Aqui você pode mostrar seus trabalhos ou portfólio.</p>
-  </section>
+    <section id="projetos">
+      <h2>Leandro3810</h2>
+      <p>Aqui você pode mostrar seus trabalhos ou portfólio.</p>
+    </section>
 
-  <section id="contato">
-    <h2>contato</h2>
-    <p>Email:</p>
-  </section>
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Email: <a href="mailto:seuemail@email.com">seuemail@email.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/leandro3810" target="_blank" rel="noopener noreferrer">leandro3810</a></p>
+      <p>GitHub: <a href="https://github.com/leandro3810" target="_blank" rel="noopener noreferrer">github.com/leandro3810</a></p>
+    </section>
+
+    <section id="atalhos">
+      <h2>Atalhos de Navegação</h2>
+      <ul>
+        <li><strong>Alt + 1</strong>: Ir para Sobre</li>
+        <li><strong>Alt + 2</strong>: Ir para Projetos</li>
+        <li><strong>Alt + 3</strong>: Ir para Contato</li>
+        <li><strong>Alt + 4</strong>: Ver Atalhos</li>
+        <li><strong>Alt + T</strong>: Traduzir o site</li>
+      </ul>
+      <p>Esses atalhos ajudam a navegar pelo site de forma rápida e acessível. Mais informações nos tooltips de cada link.</p>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Leandro. Todos os direitos reservados.</p>
+    <p>
+      <a href="#atalhos" title="Ver atalhos do site">Atalhos do site</a> |
+      <a href="politica-privacidade.html" title="Política de Privacidade" rel="noopener noreferrer">Política de Privacidade</a>
+    </p>
   </footer>
-  <script>"script.js"</script>
+
+  <!-- Segurança: JS externo referenciado corretamente -->
+  <script src="script.js"></script>
+  <script>
+    // Exemplo de JS para melhorar segurança e acessibilidade dos atalhos
+    document.addEventListener('keydown', function(e) {
+      if(e.altKey && e.key === 't') {
+        document.getElementById('btnTradutor').click();
+      }
+    });
+  </script>
 </body>
 </html>

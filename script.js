@@ -1,106 +1,126 @@
-// Script para funcionalidades básicas do seu site
+// script.js - Configuração para Search Art
+// Autor: Leandro R Gomes
+// Objetivo: Melhorar acessibilidade, segurança e experiência do usuário
 
-// Rolagem suave para navegação
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  });
-});
+// --- Tradutor Simples (Português/Inglês) ---
+const tradutorBtn = document.getElementById('btnTradutor');
+let traduzido = false;
 
-// Botão para voltar ao topo
-const btnTopo = document.createElement('button');
-btnTopo.innerHTML = '<i class="fa fa-arrow-up"></i>';
-btnTopo.setAttribute('id', 'btn-topo');
-btnTopo.setAttribute('title', 'Voltar ao topo');
-btnTopo.style.position = 'fixed';
-btnTopo.style.bottom = '30px';
-btnTopo.style.right = '30px';
-btnTopo.style.display = 'none';
-btnTopo.style.zIndex = '1000';
-btnTopo.style.padding = '12px 16px';
-btnTopo.style.borderRadius = '50%';
-btnTopo.style.background = '#222';
-btnTopo.style.color = '#fff';
-btnTopo.style.border = 'none';
-btnTopo.style.cursor = 'pointer';
-
-document.body.appendChild(btnTopo);
-
-window.addEventListener('scroll', () => {
-  btnTopo.style.display = window.scrollY > 200 ? 'block' : 'none';
-});
-
-btnTopo.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Exemplo de mensagem de boas-vindas
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    alert('Bem-vindo ao Meu Site, Leandro!');
-  }, 800);
-});
-
-// Dicionário simples para tradução pt <-> en
+// Textos alternativos para tradução
 const traducoes = {
-  "pt": {
-    "Meu Site Search Art": "Meu Site Search Art",
-    "Sobre": "Sobre",
-    "Projetos": "Projetos",
-    "Contato": "Contato",
-    "Sobre Mim": "Sobre Mim",
-    "Uma breve descrição sobre quem você é e o que faz.": "Uma breve descrição sobre quem você é e o que faz.",
-    "Aqui você pode mostrar seus trabalhos ou portfólio.": "Aqui você pode mostrar seus trabalhos ou portfólio.",
-    "contato": "contato",
-    "Email:": "Email:",
-    "&copy; 2025 Leandro. Todos os direitos reservados.": "&copy; 2025 Leandro. Todos os direitos reservados.",
-    "Traduzir": "Traduzir"
+  'pt': {
+    sobre: 'Sobre Mim',
+    descSobre: 'Uma breve descrição sobre quem você é e o que faz.',
+    projetos: 'Leandro3810',
+    descProjetos: 'Aqui você pode mostrar seus trabalhos ou portfólio.',
+    contato: 'Contato',
+    atalhos: 'Atalhos de Navegação',
+    atalhosDesc: 'Esses atalhos ajudam a navegar pelo site de forma rápida e acessível. Mais informações nos tooltips de cada link.',
+    email: 'Email',
+    linkedin: 'LinkedIn',
+    github: 'GitHub',
+    direitos: 'Todos os direitos reservados.',
+    tradutor: 'Traduzir'
   },
-  "en": {
-    "Meu Site Search Art": "My Site Search Art",
-    "Sobre": "About",
-    "Projetos": "Projects",
-    "Contato": "Contact",
-    "Sobre Mim": "About Me",
-    "Uma breve descrição sobre quem você é e o que faz.": "A brief description about who you are and what you do.",
-    "Aqui você pode mostrar seus trabalhos ou portfólio.": "Here you can showcase your work or portfolio.",
-    "contato": "contact",
-    "Email:": "Email:",
-    "&copy; 2025 Leandro. Todos os direitos reservados.": "&copy; 2025 Leandro. All rights reserved.",
-    "Traduzir": "Translate"
+  'en': {
+    sobre: 'About Me',
+    descSobre: 'A brief description about who you are and what you do.',
+    projetos: 'Leandro3810',
+    descProjetos: 'Here you can showcase your work or portfolio.',
+    contato: 'Contact',
+    atalhos: 'Navigation Shortcuts',
+    atalhosDesc: 'These shortcuts help you navigate the site quickly and accessibly. More info in each link\'s tooltip.',
+    email: 'Email',
+    linkedin: 'LinkedIn',
+    github: 'GitHub',
+    direitos: 'All rights reserved.',
+    tradutor: 'Translate'
   }
 };
 
-let idiomaAtual = "pt";
+// Função para alternar idioma
+function alternarIdioma() {
+  traduzido = !traduzido;
+  const lang = traduzido ? 'en' : 'pt';
+  document.documentElement.lang = lang;
 
-document.getElementById('btnTradutor').addEventListener('click', function() {
-  idiomaAtual = idiomaAtual === "pt" ? "en" : "pt";
-  traduzirPagina(idiomaAtual);
-  this.innerHTML = `<i class="fa-solid fa-globe"></i> ${traducoes[idiomaAtual]["Traduzir"]}`;
+  document.querySelector('#sobre h2').textContent = traducoes[lang].sobre;
+  document.querySelector('#sobre p').textContent = traducoes[lang].descSobre;
+  document.querySelector('#projetos h2').textContent = traducoes[lang].projetos;
+  document.querySelector('#projetos p').textContent = traducoes[lang].descProjetos;
+  document.querySelector('#contato h2').textContent = traducoes[lang].contato;
+  document.querySelector('#atalhos h2').textContent = traducoes[lang].atalhos;
+  document.querySelector('#atalhos p').textContent = traducoes[lang].atalhosDesc;
+
+  // Contato labels
+  document.querySelector('#contato a[href^="mailto"]').previousSibling.textContent = `${traducoes[lang].email}: `;
+  document.querySelector('#contato a[href^="https://linkedin"]').previousSibling.textContent = `${traducoes[lang].linkedin}: `;
+  document.querySelector('#contato a[href^="https://github"]').previousSibling.textContent = `${traducoes[lang].github}: `;
+
+  // Footer
+  document.querySelector('footer p').innerHTML = `&copy; 2025 Leandro. ${traducoes[lang].direitos}`;
+  tradutorBtn.innerHTML = `<i class="fa-solid fa-globe"></i> ${traducoes[lang].tradutor}`;
+}
+
+// Evento de clique no botão Tradutor
+tradutorBtn.addEventListener('click', alternarIdioma);
+
+// --- Segurança: Evitar JS Injections Simples ---
+window.addEventListener('DOMContentLoaded', () => {
+  // Remove atributos potencialmente inseguros (exemplo básico, não cobre tudo)
+  document.querySelectorAll('[onerror],[onclick],[onload]').forEach(el => {
+    el.removeAttribute('onerror');
+    el.removeAttribute('onclick');
+    el.removeAttribute('onload');
+  });
 });
 
-function traduzirPagina(idioma) {
-  // Cabeçalho
-  document.querySelector('h1').textContent = traducoes[idioma]["Meu Site Search Art"];
-  // Navegação
-  const navLinks = document.querySelectorAll('nav a');
-  navLinks[0].textContent = traducoes[idioma]["Sobre"];
-  navLinks[1].textContent = traducoes[idioma]["Projetos"];
-  navLinks[2].textContent = traducoes[idioma]["Contato"];
-  // Seções
-  document.querySelector('#sobre h2').textContent = traducoes[idioma]["Sobre Mim"];
-  document.querySelector('#sobre p').textContent = traducoes[idioma]["Uma breve descrição sobre quem você é e o que faz."];
-  document.querySelector('#projetos h2').textContent = "leandro3810";
-  document.querySelector('#projetos p').textContent = traducoes[idioma]["Aqui você pode mostrar seus trabalhos ou portfólio."];
-  document.querySelector('#contato h2').textContent = traducoes[idioma]["contato"];
-  document.querySelector('#contato p').textContent = traducoes[idioma]["Email:"];
-  // Rodapé
-  document.querySelector('footer p').textContent = traducoes[idioma]["© 2025 Leandro. Todos os direitos reservados."];
-}
+// --- Acessibilidade: Foco visual ao navegar por atalhos ---
+document.addEventListener('keydown', function(e) {
+  const atalhos = {
+    '1': '#sobre',
+    '2': '#projetos',
+    '3': '#contato',
+    '4': '#atalhos'
+  };
+  if (e.altKey && atalhos[e.key]) {
+    const alvo = document.querySelector(atalhos[e.key]);
+    if (alvo) {
+      alvo.scrollIntoView({ behavior: 'smooth' });
+      alvo.setAttribute('tabindex', '-1');
+      alvo.focus();
+      // Remove tabindex="-1" after the element loses focus
+      const removeTabindex = () => {
+        alvo.removeAttribute('tabindex');
+        alvo.removeEventListener('blur', removeTabindex);
+      };
+      alvo.addEventListener('blur', removeTabindex);
+    }
+  }
+});
+
+// --- Melhoria: Foco visual para navegação por teclado ---
+['sobre', 'projetos', 'contato', 'atalhos'].forEach(id => {
+  const section = document.getElementById(id);
+  section && section.addEventListener('focus', function() {
+    section.style.outline = '2px solid #0078d7';
+  });
+  section && section.addEventListener('blur', function() {
+    section.style.outline = 'none';
+  });
+});
+
+// --- Segurança: Evitar links perigosos ---
+document.querySelectorAll('a[rel~="noopener"]').forEach(link => {
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer');
+});
+
+// --- SEO: Atualizar título dinamicamente (exemplo) ---
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function() {
+    document.title = `Search Art - ${link.textContent}`;
+  });
+});
+
+// --- Fim do script ---

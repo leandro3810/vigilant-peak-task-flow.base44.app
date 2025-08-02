@@ -12,6 +12,9 @@
   <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="description" content="Descrição sucinta e relevante da página.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
   <!-- SEO e Segurança -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="canonical" href="https://searchart.com.br/" />
@@ -29,6 +32,9 @@
 <body>
   <header>
     <h1>Meu Site Search Art</h1>
+    <img src="logo.png" alt="Logo da empresa">
+<img src="decorativo.png" alt="">
+
     <nav aria-label="Navegação principal">
       <ul>
         <li><a href="#sobre" accesskey="1" title="Ir para Sobre (Alt+1)">Sobre</a></li>
@@ -36,13 +42,40 @@
         <li><a href="#contato" accesskey="3" title="Ir para Contato (Alt+3)">Contato</a></li>
         <li><a href="#atalhos" accesskey="4" title="Ver Atalhos do site (Alt+4)">Atalhos</a></li>
       </ul>
+      <form action="https://formspree.io/f/{form_id}" method="POST">
+  <input type="text" name="nome" placeholder="Seu nome" required>
+  <input type="email" name="email" placeholder="Seu email" required>
+  <textarea name="mensagem" placeholder="Mensagem" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
     </nav>
+    <button>Salvar</button>
+<a href="#produtos">Produtos</a>
+<input type="text" name="nome" id="nome">
     <!-- Botão Tradutor -->
     <button id="btnTradutor" class="btn-tradutor" aria-label="Traduzir conteúdo">
       <i class="fa-solid fa-globe"></i> Traduzir
     </button>
   </header>
+  <!-- No <head> -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
+<!-- Onde o anúncio aparece -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+     data-ad-slot="1234567890"
+     data-ad-format="auto"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
   <main>
     <section id="sobre">
       <h2>Sobre Mim</h2>
@@ -60,7 +93,7 @@
       <p>LinkedIn: <a href="https://linkedin.com/in/leandro3810" target="_blank" rel="noopener noreferrer">leandro3810</a></p>
       <p>GitHub: <a href="https://github.com/leandro3810" target="_blank" rel="noopener noreferrer">github.com/leandro3810</a></p>
     </section>
-
+       <iframe src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
     <section id="atalhos">
       <h2>Atalhos de Navegação</h2>
       <ul>
@@ -94,4 +127,5 @@
   </script>
 </body>
 </html>
+
 

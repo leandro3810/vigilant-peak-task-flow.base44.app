@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://leandro3810.github.io/leandro3810-python-lord/sitemap.xml

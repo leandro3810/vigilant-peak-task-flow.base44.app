@@ -122,5 +122,11 @@ document.querySelectorAll('nav a').forEach(link => {
     document.title = `Search Art - ${link.textContent}`;
   });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  const imgs = document.querySelectorAll('img[loading="lazy"]');
+  imgs.forEach(img => {
+    // O browser já faz lazy loading nativamente, mas pode-se usar Intersection Observer para casos avançados
+  });
+});
 
 // --- Fim do script ---

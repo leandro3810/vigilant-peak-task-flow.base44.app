@@ -66,6 +66,16 @@ nav form {
 nav input, nav textarea {
   padding: 0.5rem;
   border-radius: 6px;
+  min-width: 12em;
+}
+
+@media (max-width: 500px) {
+  nav input,
+  nav textarea {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+}
   border: 1px solid #cfd8dc;
   font-size: 1rem;
   min-width: 180px;

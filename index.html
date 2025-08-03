@@ -49,9 +49,12 @@
   <button type="submit">Enviar</button>
 </form>
     </nav>
-    <button>Salvar</button>
-<a href="#produtos">Produtos</a>
-<input type="text" name="nome" id="nome">
+    <div class="header-controls" role="group" aria-label="Ações rápidas">
+      <button type="button" aria-label="Salvar alterações">Salvar</button>
+      <a href="#produtos" aria-label="Ir para Produtos">Produtos</a>
+      <label for="nome-header" class="visually-hidden">Nome</label>
+      <input type="text" name="nome-header" id="nome-header" placeholder="Nome">
+    </div>
     <!-- Botão Tradutor -->
     <button id="btnTradutor" class="btn-tradutor" aria-label="Traduzir conteúdo">
       <i class="fa-solid fa-globe"></i> Traduzir

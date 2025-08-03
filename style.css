@@ -18,7 +18,14 @@ body {
   background: linear-gradient(135deg, #f3f7fa 0%, #d7e9f7 100%);
   color: #222;
   min-height: 100vh;
-  transition: background 0.3s;
+  transition: background 0.3s;{
+  background: #fff;
+  color: #222;
+}
+.button {
+  background: #0057b8;
+  color: #fff;
+}
 }
 
 /* Header */
@@ -81,6 +88,10 @@ nav a:hover, nav a:focus {
   background: #0a2940;
   transform: scale(1.05);
   outline: none;
+}
+button:focus, a:focus, input:focus {
+  outline: 2px solid #0057b8;
+  outline-offset: 2px;
 }
 
 /* Main */

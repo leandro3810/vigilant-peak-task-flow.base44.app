@@ -64,10 +64,22 @@ tradutorBtn.addEventListener('click', function() {
 // Já existe JS no HTML para Alt+T (tradutor)
 document.addEventListener('keydown', function(e) {
   if(e.altKey) {
-    if(e.key === '1') document.querySelector('nav ul li:nth-child(1) a').focus();
-    if(e.key === '2') document.querySelector('nav ul li:nth-child(2) a').focus();
-    if(e.key === '3') document.querySelector('nav ul li:nth-child(3) a').focus();
-    if(e.key === '4') document.querySelector('nav ul li:nth-child(4) a').focus();
+    if(e.key === '1') {
+      e.preventDefault();
+      document.querySelector('nav ul li:nth-child(1) a').focus();
+    }
+    if(e.key === '2') {
+      e.preventDefault();
+      document.querySelector('nav ul li:nth-child(2) a').focus();
+    }
+    if(e.key === '3') {
+      e.preventDefault();
+      document.querySelector('nav ul li:nth-child(3) a').focus();
+    }
+    if(e.key === '4') {
+      e.preventDefault();
+      document.querySelector('nav ul li:nth-child(4) a').focus();
+    }
   }
 });
 

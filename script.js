@@ -1,132 +1,81 @@
 // script.js - Configuração para Search Art
 // Autor: Leandro R Gomes
 // Objetivo: Melhorar acessibilidade, segurança e experiência do usuário
-
-// --- Tradutor Simples (Português/Inglês) ---
+// Tradutor Simples: alterna idioma de português para inglês e volta
 const tradutorBtn = document.getElementById('btnTradutor');
-let traduzido = false;
+let traducaoAtiva = false;
 
-// Textos alternativos para tradução
 const traducoes = {
-  'pt': {
-    sobre: 'Sobre Mim',
-    descSobre: 'Uma breve descrição sobre quem você é e o que faz.',
-    projetos: 'Leandro3810',
-    descProjetos: 'Aqui você pode mostrar seus trabalhos ou portfólio.',
-    contato: 'Contato',
-    atalhos: 'Atalhos de Navegação',
-    atalhosDesc: 'Esses atalhos ajudam a navegar pelo site de forma rápida e acessível. Mais informações nos tooltips de cada link.',
-    email: 'Email',
-    linkedin: 'LinkedIn',
-    github: 'GitHub',
-    direitos: 'Todos os direitos reservados.',
-    tradutor: 'Traduzir'
+  pt: {
+    titulo: "Meu Site Search Art",
+    sobre: "Sobre",
+    projetos: "Projetos",
+    contato: "Contato",
+    atalhos: "Atalhos",
+    salvar: "Salvar",
+    produtos: "Produtos",
+    enviar: "Enviar",
+    footer1: "Todos os direitos reservados.",
+    footer2: "Atalhos do site",
+    footer3: "Política de Privacidade"
   },
-  'en': {
-    sobre: 'About Me',
-    descSobre: 'A brief description about who you are and what you do.',
-    projetos: 'Leandro3810',
-    descProjetos: 'Here you can showcase your work or portfolio.',
-    contato: 'Contact',
-    atalhos: 'Navigation Shortcuts',
-    atalhosDesc: 'These shortcuts help you navigate the site quickly and accessibly. More info in each link\'s tooltip.',
-    email: 'Email',
-    linkedin: 'LinkedIn',
-    github: 'GitHub',
-    direitos: 'All rights reserved.',
-    tradutor: 'Translate'
+  en: {
+    titulo: "My Search Art Site",
+    sobre: "About",
+    projetos: "Projects",
+    contato: "Contact",
+    atalhos: "Shortcuts",
+    salvar: "Save",
+    produtos: "Products",
+    enviar: "Send",
+    footer1: "All rights reserved.",
+    footer2: "Site shortcuts",
+    footer3: "Privacy Policy"
   }
 };
 
-// Função para alternar idioma
-function alternarIdioma() {
-  traduzido = !traduzido;
-  const lang = traduzido ? 'en' : 'pt';
-  document.documentElement.lang = lang;
-
-  document.querySelector('#sobre h2').textContent = traducoes[lang].sobre;
-  document.querySelector('#sobre p').textContent = traducoes[lang].descSobre;
-  document.querySelector('#projetos h2').textContent = traducoes[lang].projetos;
-  document.querySelector('#projetos p').textContent = traducoes[lang].descProjetos;
-  document.querySelector('#contato h2').textContent = traducoes[lang].contato;
-  document.querySelector('#atalhos h2').textContent = traducoes[lang].atalhos;
-  document.querySelector('#atalhos p').textContent = traducoes[lang].atalhosDesc;
-
-  // Contato labels
-  document.querySelector('#contato a[href^="mailto"]').previousSibling.textContent = `${traducoes[lang].email}: `;
-  document.querySelector('#contato a[href^="https://linkedin"]').previousSibling.textContent = `${traducoes[lang].linkedin}: `;
-  document.querySelector('#contato a[href^="https://github"]').previousSibling.textContent = `${traducoes[lang].github}: `;
-
-  // Footer
-  document.querySelector('footer p').innerHTML = `&copy; 2025 Leandro. ${traducoes[lang].direitos}`;
-  tradutorBtn.innerHTML = `<i class="fa-solid fa-globe"></i> ${traducoes[lang].tradutor}`;
+function traduzirSite(idioma) {
+  document.querySelector('header h1').innerText = traducoes[idioma].titulo;
+  document.querySelector('nav ul li:nth-child(1) a').innerText = traducoes[idioma].sobre;
+  document.querySelector('nav ul li:nth-child(2) a').innerText = traducoes[idioma].projetos;
+  document.querySelector('nav ul li:nth-child(3) a').innerText = traducoes[idioma].contato;
+  document.querySelector('nav ul li:nth-child(4) a').innerText = traducoes[idioma].atalhos;
+  document.querySelector('.header-controls button').innerText = traducoes[idioma].salvar;
+  document.querySelector('.header-controls a').innerText = traducoes[idioma].produtos;
+  document.querySelector('nav button[type="submit"]').innerText = traducoes[idioma].enviar;
+  document.querySelector('footer p').innerHTML = `&copy; 2025 Leandro. ${traducoes[idioma].footer1}`;
+  document.querySelectorAll('footer a')[0].innerText = traducoes[idioma].footer2;
+  document.querySelectorAll('footer a')[1].innerText = traducoes[idioma].footer3;
 }
 
-// Evento de clique no botão Tradutor
-tradutorBtn.addEventListener('click', alternarIdioma);
-
-// --- Segurança: Evitar JS Injections Simples ---
-window.addEventListener('DOMContentLoaded', () => {
-  // Remove atributos potencialmente inseguros (exemplo básico, não cobre tudo)
-  document.querySelectorAll('[onerror],[onclick],[onload]').forEach(el => {
-    el.removeAttribute('onerror');
-    el.removeAttribute('onclick');
-    el.removeAttribute('onload');
-  });
-});
-
-// --- Acessibilidade: Foco visual ao navegar por atalhos ---
-document.addEventListener('keydown', function(e) {
-  const atalhos = {
-    '1': '#sobre',
-    '2': '#projetos',
-    '3': '#contato',
-    '4': '#atalhos'
-  };
-  if (e.altKey && atalhos[e.key]) {
-    const alvo = document.querySelector(atalhos[e.key]);
-    if (alvo) {
-      alvo.scrollIntoView({ behavior: 'smooth' });
-      alvo.setAttribute('tabindex', '-1');
-      alvo.focus();
-      // Remove tabindex="-1" after the element loses focus
-      const removeTabindex = () => {
-        alvo.removeAttribute('tabindex');
-        alvo.removeEventListener('blur', removeTabindex);
-      };
-      alvo.addEventListener('blur', removeTabindex);
-    }
+tradutorBtn.addEventListener('click', function() {
+  if(!traducaoAtiva) {
+    traduzirSite('en');
+    traducaoAtiva = true;
+    tradutorBtn.innerHTML = '<i class="fa-solid fa-globe"></i> PT-BR';
+  } else {
+    traduzirSite('pt');
+    traducaoAtiva = false;
+    tradutorBtn.innerHTML = '<i class="fa-solid fa-globe"></i> Traduzir';
   }
 });
 
-// --- Melhoria: Foco visual para navegação por teclado ---
-['sobre', 'projetos', 'contato', 'atalhos'].forEach(id => {
-  const section = document.getElementById(id);
-  section && section.addEventListener('focus', function() {
-    section.style.outline = '2px solid #0078d7';
-  });
-  section && section.addEventListener('blur', function() {
-    section.style.outline = 'none';
-  });
+// Acessibilidade dos atalhos (Alt+1, Alt+2, Alt+3, Alt+4)
+// Já existe JS no HTML para Alt+T (tradutor)
+document.addEventListener('keydown', function(e) {
+  if(e.altKey) {
+    if(e.key === '1') document.querySelector('nav ul li:nth-child(1) a').focus();
+    if(e.key === '2') document.querySelector('nav ul li:nth-child(2) a').focus();
+    if(e.key === '3') document.querySelector('nav ul li:nth-child(3) a').focus();
+    if(e.key === '4') document.querySelector('nav ul li:nth-child(4) a').focus();
+  }
 });
 
-// --- Segurança: Evitar links perigosos ---
-document.querySelectorAll('a[rel~="noopener"]').forEach(link => {
-  link.setAttribute('target', '_blank');
-  link.setAttribute('rel', 'noopener noreferrer');
+// Segurança extra: desabilita colar no campo email do formulário
+document.querySelector('nav input[type="email"]').addEventListener('paste', function(e) {
+  e.preventDefault();
+  alert('Por segurança, cole manualmente seu e-mail.');
 });
-
-// --- SEO: Atualizar título dinamicamente (exemplo) ---
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', function() {
-    document.title = `Search Art - ${link.textContent}`;
-  });
-});
-document.addEventListener("DOMContentLoaded", function() {
+ventListener("DOMContentLoaded", function() {
   const imgs = document.querySelectorAll('img[loading="lazy"]');
-  imgs.forEach(img => {
-    // O browser já faz lazy loading nativamente, mas pode-se usar Intersection Observer para casos avançados
-  });
-});
-
 // --- Fim do script ---

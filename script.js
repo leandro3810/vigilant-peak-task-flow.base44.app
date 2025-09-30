@@ -91,3 +91,86 @@ document.querySelector('nav input[type="email"]').addEventListener('paste', func
 ventListener("DOMContentLoaded", function() {
   const imgs = document.querySelectorAll('img[loading="lazy"]');
 // --- Fim do script ---
+// Seletores
+const todoForm = document.getElementById('todo-form');
+const todoInput = document.getElementById('todo-input');
+const todoList = document.getElementById('todo-list');
+
+// Carregar tarefas do localStorage ao iniciar
+document.addEventListener('DOMContentLoaded', loadTodos);
+
+// Evento de envio do formulário
+todoForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const text = todoInput.value.trim();
+  if (text) {
+    addTodo(text);
+    saveTodo(text, false);
+    todoInput.value = '';
+  }
+});
+
+// Função para adicionar tarefa no DOM
+function addTodo(text, completed = false) {
+  const li = document.createElement('li');
+  li.className = 'todo-item';
+
+  const span = document.createElement('span');
+  span.className = 'todo-text' + (completed ? ' completed' : '');
+  span.textContent = text;
+  span.onclick = function() {
+    span.classList.toggle('completed');
+    updateTodoStatus(text, span.classList.contains('completed'));
+  };
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'delete-btn';
+  deleteBtn.innerHTML = '✖';
+  deleteBtn.onclick = function() {
+    li.remove();
+    deleteTodo(text);
+  };
+
+  li.appendChild(span);
+  li.appendChild(deleteBtn);
+  todoList.appendChild(li);
+}
+
+// Função para salvar tarefa no localStorage
+function saveTodo(text, completed) {
+  const todos = getTodos();
+  todos.push({ text, completed });
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// Função para carregar tarefas do localStorage
+function loadTodos() {
+  const todos = getTodos();
+  todos.forEach(todo => addTodo(todo.text, todo.completed));
+}
+
+// Recuperar lista de tarefas do localStorage
+function getTodos() {
+  const todosStr = localStorage.getItem('todos');
+  if (!todosStr) return [];
+  try {
+    return JSON.parse(todosStr) || [];
+  } catch (e) {
+    // Se os dados estiverem corrompidos, retorna array vazio
+    return [];
+  }
+}
+
+// Função para atualizar status de conclusão
+function updateTodoStatus(text, completed) {
+  const todos = getTodos().map(todo =>
+    todo.text === text ? { ...todo, completed } : todo
+  );
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// Função para deletar tarefa
+function deleteTodo(text) {
+  const todos = getTodos().filter(todo => todo.text !== text);
+  localStorage.setItem('todos', JSON.stringify(todos));
+}

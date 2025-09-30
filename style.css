@@ -123,6 +123,12 @@ button {
   transition: background 0.2s;
 }
 
+button:focus {
+  outline: 2px solid #005bb5;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #b3d4fc;
+}
+
 button:hover {
   background: #005bb5;
 }

@@ -151,7 +151,14 @@ function loadTodos() {
 
 // Recuperar lista de tarefas do localStorage
 function getTodos() {
-  return JSON.parse(localStorage.getItem('todos')) || [];
+  const todosStr = localStorage.getItem('todos');
+  if (!todosStr) return [];
+  try {
+    return JSON.parse(todosStr) || [];
+  } catch (e) {
+    // Se os dados estiverem corrompidos, retorna array vazio
+    return [];
+  }
 }
 
 // Função para atualizar status de conclusão

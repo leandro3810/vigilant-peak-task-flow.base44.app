@@ -33,7 +33,15 @@
   <header>
     <h1> Search Art</h1>
     <img src="lpl-logo.svg" alt=" LPL Logotipo" Width="160">
-
+     <div class="todo-container">
+    <h1>Lista de Tarefas</h1>
+    <form id="todo-form">
+      <label for="todo-input">Nova tarefa:</label>
+      <input type="text" id="todo-input" placeholder="Digite uma nova tarefa..." required>
+      <button type="submit">Adicionar</button>
+    </form>
+    <ul id="todo-list" role="list" aria-label="Lista de tarefas"></ul>
+  </div>
     <div class="header-controls" role="group" aria-label="Ações rápidas">
       <button type="button" aria-label="Salvar alterações">Salvar</button>
       <a href="#produtos" aria-label="Ir para Produtos">Produtos</a>
@@ -109,6 +117,7 @@
   </script>
 </body>
 </html>
+
 
 
 

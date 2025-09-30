@@ -174,3 +174,44 @@ function deleteTodo(text) {
   const todos = getTodos().filter(todo => todo.text !== text);
   localStorage.setItem('todos', JSON.stringify(todos));
 }
+// List of time zones to display
+const timeZones = [
+  { label: 'Brasília', zone: 'America/Sao_Paulo' },
+  { label: 'New York', zone: 'America/New_York' },
+  { label: 'London', zone: 'Europe/London' },
+  { label: 'Tokyo', zone: 'Asia/Tokyo' },
+  { label: 'UTC', zone: 'UTC' }
+];
+
+// Create clock elements
+const clocksDiv = document.getElementById('clocks');
+timeZones.forEach(tz => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'timezone-clock';
+  wrapper.innerHTML = `
+    <span class="timezone-label">${tz.label}</span>
+    <span class="timezone-time" id="clock-${tz.zone.replace(/[\/_]/g, "-")}"></span>
+  `;
+  clocksDiv.appendChild(wrapper);
+});
+
+function updateClocks() {
+  const now = new Date();
+  timeZones.forEach(tz => {
+    const timeString = new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+      timeZone: tz.zone
+    }).format(now);
+    const clockElem = document.getElementById('clock-' + tz.zone.replace(/[\/_]/g, "-"));
+    if (clockElem) {
+      clockElem.textContent = timeString;
+    }
+  });
+}
+
+// Initial call and interval
+updateClocks();
+setInterval(updateClocks, 1000);

@@ -122,7 +122,43 @@ button {
   cursor: pointer;
   transition: background 0.2s;
 }
-
+body {
+  background: #212121;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+.clock-container {
+  max-width: 470px;
+  margin: 40px auto;
+  background: #2d2d2d;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px #0006;
+  padding: 32px 24px 24px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+.timezone-clock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #383838;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+.timezone-label {
+  font-weight: bold;
+  font-size: 1.05em;
+}
 button:focus {
   outline: 2px solid #005bb5;
   outline-offset: 2px;

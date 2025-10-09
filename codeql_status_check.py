@@ -18,11 +18,18 @@ headers = {
 # Função para buscar alertas do CodeQL
 def get_codeql_alerts():
     url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/code-scanning/alerts"
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print("Erro ao buscar alertas:", response.status_code, response.text)
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print("Erro ao buscar alertas:", response.status_code, response.text)
+            return []
+    except requests.Timeout:
+        print("Erro: requisição ao GitHub API excedeu o tempo limite.")
+        return []
+    except requests.RequestException as e:
+        print("Erro ao buscar alertas:", str(e))
         return []
 
 # Exibe os alertas encontrados

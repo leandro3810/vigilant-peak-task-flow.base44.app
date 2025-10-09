@@ -39,10 +39,16 @@ def show_alerts(alerts):
     else:
         print("Alertas CodeQL encontrados:")
         for alert in alerts:
-            print(f"- [{alert['rule']['name']}] {alert['description']}")
-            print(f"  Severidade: {alert['severity']}")
-            print(f"  Estado: {alert['state']}")
-            print(f"  URL: {alert['html_url']}\n")
+            rule = alert.get('rule', {})
+            rule_name = rule.get('name', 'N/A')
+            description = alert.get('description', 'N/A')
+            severity = alert.get('severity', 'N/A')
+            state = alert.get('state', 'N/A')
+            html_url = alert.get('html_url', 'N/A')
+            print(f"- [{rule_name}] {description}")
+            print(f"  Severidade: {severity}")
+            print(f"  Estado: {state}")
+            print(f"  URL: {html_url}\n")
 
 if __name__ == "__main__":
     alerts = get_codeql_alerts()

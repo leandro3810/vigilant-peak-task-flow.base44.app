@@ -6,6 +6,10 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_OWNER = "seu-usuario-ou-org"
 REPO_NAME = "seu-repositorio"
 
+if not GITHUB_TOKEN:
+    print("Error: GITHUB_TOKEN environment variable is not set. Please set it to authenticate with GitHub.")
+    exit(1)
+
 headers = {
     "Authorization": f"token {GITHUB_TOKEN}",
     "Accept": "application/vnd.github+json"

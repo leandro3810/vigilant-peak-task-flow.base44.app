@@ -11,4 +11,3 @@ API_KEY = os.getenv("API_KEY")
 
 print(f"DEBUG: {DEBUG}")
 print(f"DATABASE_URL: {DATABASE_URL}")
-print(f"API_KEY: {API_KEY}")

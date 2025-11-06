@@ -8,8 +8,10 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // Endpoints
+app.get('/', const path = require('path');
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.post('/api/contact', (req, res) => {

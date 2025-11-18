@@ -1,5 +1,5 @@
 def run_setup(script_name, script_args=None, stop_after="run"):
-    save_argv = sys.argv
+    save_argv = sys.argv.copy()
     try:
         sys.argv[0] = script_name
         if script_args is not None:

@@ -211,7 +211,7 @@ def run_setup (script_name, script_args=None, stop_after="run"):
             sys.argv[0] = script_name
             if script_args is not None:
                 sys.argv[1:] = script_args
-            with open(script_name, 'rb') as f:
+            with open(script_name, 'r', encoding='utf-8') as f:
                 exec(f.read(), g)
         finally:
             sys.argv = save_argv

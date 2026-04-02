@@ -1,11 +1,39 @@
-# 👋 Hi there, I'm Leandro!
+**Welcome to your Base44 project** 
 
+**About**
 
-![01_mclaren_senna_black_livery_2_resized](https://github.com/user-attachments/assets/37df449d-7588-4553-8aff-7c73088b3eb6)
+View and Edit  your app on [Base44.com](http://Base44.com) 
 
+This project contains everything you need to run your app locally.
 
+**Edit the code in your local development environment**
 
-![PORCHE](https://github.com/user-attachments/assets/474fd3aa-7bd0-49af-a7da-04201bff8edc)
+Any change pushed to the repo will also be reflected in the Base44 Builder.
 
+**Prerequisites:** 
 
-*Thank you for visiting my profile! Feel free to explore my repositories and reach out for collaboration or questions.*
+1. Clone the repository using the project's Git URL 
+2. Navigate to the project directory
+3. Install dependencies: `npm install`
+4. Create an `.env.local` file and set the right environment variables
+
+```
+VITE_BASE44_APP_ID=your_app_id
+VITE_BASE44_APP_BASE_URL=your_backend_url
+
+e.g.
+VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
+VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+```
+
+Run the app: `npm run dev`
+
+**Publish your changes**
+
+Open [Base44.com](http://Base44.com) and click on Publish.
+
+**Docs & Support**
+
+Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+
+Support: [https://app.base44.com/support](https://app.base44.com/support)
